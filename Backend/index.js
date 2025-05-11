@@ -5,9 +5,13 @@ import {pool} from './src/models/DBDonar.js'
 import DonorRouter from './src/routes/DonorRoutes.js'
 import PatientsRouter from './src/routes/PatientRoutes.js'
 
-const app=express()
-const port=6200
+import cors from 'cors'; 
+
+const app = express();
+app.use(cors());
 app.use(express.json())
+const port=6200
+
 app.use('/donor',DonorRouter) 
 app.use('/patient',PatientsRouter)
 
@@ -16,5 +20,6 @@ app.get('/',(req,res)=>{
 
 })
 app.listen(port,()=>{
-    console.log("server Started");   
+    console.log(`Server started on http://localhost:${port}`);
+   
 })

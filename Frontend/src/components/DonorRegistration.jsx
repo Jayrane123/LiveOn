@@ -120,10 +120,8 @@ export function DonorRegistrationForm() {
       const response = await registerDonor(data);
       if (response.status === 200) {
         toast.success("Donor Registered Successfully");
-        console.log(organname)
-       navigate(`/patient-list/${organname}`);
-
-
+        console.log(organname);
+        navigate(`/patient-list/${organname}`);
       }
     } catch (error) {
       console.error(error);
@@ -320,18 +318,26 @@ export function DonorRegistrationForm() {
           <Col lg={6}>
             <Form.Group className="mb-3">
               <Form.Label>Organs to Donate</Form.Label>
-              <Form.Control
-                type="text"
+              <Form.Select
                 name="organs_to_donate"
                 value={formData.organs_to_donate}
-                // onChange={handleChange}
                 onChange={(e) => {
                   handleChange(e);
                   setOrganname(e.target.value);
                 }}
-              />
+              >
+                <option value="">-- Select an Organ --</option>
+                <option value="Heart">Heart</option>
+                <option value="Liver">Liver</option>
+                <option value="Kidney">Kidney</option>
+                <option value="Lungs">Lungs</option>
+                <option value="Pancreas">Pancreas</option>
+                <option value="Intestine">Intestine</option>
+                <option value="Eye">Eye</option>
+              </Form.Select>
             </Form.Group>
           </Col>
+
           <Col lg={6}>
             <Form.Group className="mb-3">
               <Form.Label>Donation Type</Form.Label>

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export function PatientRegistrationForm() {
   const navigate = useNavigate();
 
-  const [organname, setOrganname] = useState(null);
+  const [organname, setOrganName] = useState(null);
   const [formData, setFormData] = useState({
     full_name: "",
     dob: "",
@@ -30,93 +30,94 @@ export function PatientRegistrationForm() {
   };
 
   const handleSubmit = async (event) => {
-  event.preventDefault();
+    event.preventDefault();
 
-  // Regex patterns
-  const nameRegex = /^[a-zA-Z\s]{2,50}$/;
-  const phoneRegex = /^[6-9]\d{9}$/;
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const aadhaarRegex = /^(?!0{8})\d{12}$/;
-  const bloodGroupRegex = /^(A|B|AB|O)[+-]$/;
+    // Regex patterns
+    const nameRegex = /^[a-zA-Z\s]{2,50}$/;
+    const phoneRegex = /^[6-9]\d{9}$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const aadhaarRegex = /^(?!0{8})\d{12}$/;
+    const bloodGroupRegex = /^(A|B|AB|O)[+-]$/;
 
-  // Trim and normalize form data
-  const cleanedFormData = {
-    ...formData,
-    full_name: formData.full_name.trim(),
-    email: formData.email.trim(),
-    id_proof: formData.id_proof.trim(),
-    blood_group: formData.blood_group.trim().toUpperCase(),
-    organ_needed: formData.organ_needed.trim(),
-    emergency_contact: formData.emergency_contact.trim(),
-  };
-const today = new Date();
-  const dobDate = new Date(cleanedFormData.dob);
-  today.setHours(0, 0, 0, 0); // Strip time for accurate comparison
-  dobDate.setHours(0, 0, 0, 0);
+    // Trim and normalize form data
+    const cleanedFormData = {
+      ...formData,
+      full_name: formData.full_name.trim(),
+      email: formData.email.trim(),
+      id_proof: formData.id_proof.trim(),
+      blood_group: formData.blood_group.trim().toUpperCase(),
+      organ_needed: formData.organ_needed.trim(),
+      emergency_contact: formData.emergency_contact.trim(),
+    };
+    const today = new Date();
+    const dobDate = new Date(cleanedFormData.dob);
+    today.setHours(0, 0, 0, 0); // Strip time for accurate comparison
+    dobDate.setHours(0, 0, 0, 0);
 
-  if (!cleanedFormData.dob || dobDate >= today) {
-    toast.error("Date of birth must be a valid past date");
-    return;
-  }
-  // Validations
-  if (!nameRegex.test(cleanedFormData.full_name)) {
-    toast.error("Invalid full name");
-    return;
-  }
-
-  if (!cleanedFormData.dob) {
-    toast.error("Date of Birth is required");
-    return;
-  }
-
-  if (!cleanedFormData.gender) {
-    toast.error("Please select a gender");
-    return;
-  }
-
-  if (!phoneRegex.test(cleanedFormData.phone_number)) {
-    toast.error("Invalid phone number");
-    return;
-  }
-
-  if (!emailRegex.test(cleanedFormData.email)) {
-    toast.error("Invalid email address");
-    return;
-  }
-
-  if (!aadhaarRegex.test(cleanedFormData.id_proof)) {
-    toast.error("Invalid Aadhaar (must be 12 digits and not start with 8 zeros)");
-    return;
-  }
-
-  if (!bloodGroupRegex.test(cleanedFormData.blood_group)) {
-    toast.error("Invalid blood group (e.g., A+, B-, O+)");
-    return;
-  }
-
-  if (!phoneRegex.test(cleanedFormData.emergency_contact)) {
-    toast.error("Invalid emergency contact number");
-    return;
-  }
-
-  if (!cleanedFormData.urgency_level) {
-    toast.error("Please select urgency level");
-    return;
-  }
-
-  try {
-    console.log(cleanedFormData);
-    const response = await registerPatient(cleanedFormData);
-    if (response.status === 200) {
-      toast.success("Patient Registered Successfully");
-       navigate(`/donor-list/${organname}`);
+    if (!cleanedFormData.dob || dobDate >= today) {
+      toast.error("Date of birth must be a valid past date");
+      return;
     }
-  } catch (error) {
-    console.error(error);
-    toast.error("Something went wrong");
-  }
-};
+    // Validations
+    if (!nameRegex.test(cleanedFormData.full_name)) {
+      toast.error("Invalid full name");
+      return;
+    }
 
+    if (!cleanedFormData.dob) {
+      toast.error("Date of Birth is required");
+      return;
+    }
+
+    if (!cleanedFormData.gender) {
+      toast.error("Please select a gender");
+      return;
+    }
+
+    if (!phoneRegex.test(cleanedFormData.phone_number)) {
+      toast.error("Invalid phone number");
+      return;
+    }
+
+    if (!emailRegex.test(cleanedFormData.email)) {
+      toast.error("Invalid email address");
+      return;
+    }
+
+    if (!aadhaarRegex.test(cleanedFormData.id_proof)) {
+      toast.error(
+        "Invalid Aadhaar (must be 12 digits and not start with 8 zeros)"
+      );
+      return;
+    }
+
+    if (!bloodGroupRegex.test(cleanedFormData.blood_group)) {
+      toast.error("Invalid blood group (e.g., A+, B-, O+)");
+      return;
+    }
+
+    if (!phoneRegex.test(cleanedFormData.emergency_contact)) {
+      toast.error("Invalid emergency contact number");
+      return;
+    }
+
+    if (!cleanedFormData.urgency_level) {
+      toast.error("Please select urgency level");
+      return;
+    }
+
+    try {
+      console.log(cleanedFormData);
+      const response = await registerPatient(cleanedFormData);
+      if (response.status === 200) {
+        toast.success("Patient Registered Successfully");
+        navigate(`/donor-list/${organname}`);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong");
+    }
+  };
 
   return (
     <Container className="mt-4">
@@ -277,17 +278,26 @@ const today = new Date();
           <Col lg={6}>
             <Form.Group className="mb-3">
               <Form.Label>Organ Needed</Form.Label>
-              <Form.Control
-                type="text"
+              <Form.Select
                 name="organ_needed"
                 value={formData.organ_needed}
-               onChange={(e) => {
+                onChange={(e) => {
                   handleChange(e);
-                  setOrganname(e.target.value);
+                  setOrganName(e.target.value);
                 }}
-              />
+              >
+                <option value="">-- Select an Organ --</option>
+                <option value="Heart">Heart</option>
+                <option value="Liver">Liver</option>
+                <option value="Kidney">Kidney</option>
+                <option value="Lungs">Lungs</option>
+                <option value="Pancreas">Pancreas</option>
+                <option value="Intestine">Intestine</option>
+                <option value="Eye">Eye</option>
+              </Form.Select>
             </Form.Group>
           </Col>
+
           <Col lg={6}>
             <Form.Group className="mb-3">
               <Form.Label>Urgency Level</Form.Label>

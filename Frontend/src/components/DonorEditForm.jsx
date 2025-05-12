@@ -3,7 +3,8 @@ import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { fetchAllDetailsDonors,UpdateDonor } from "../services/DonorService";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
-
+import NavigationBar from "./Navbar/NavigationBar";
+import Footer from "./Footer/Footer";
 export function DonorEditForm() {
 
     const params = useParams();
@@ -146,6 +147,8 @@ const today = new Date();
     }
 
     return (
+      <div>
+      <NavigationBar />
         <Container className="mt-4">
             <Alert variant="success">
                 <h2>Edit a student</h2>
@@ -184,5 +187,7 @@ const today = new Date();
                 </Form>
             </Container>
         </Container>
+              <Footer />
+    </div>
     )
 }

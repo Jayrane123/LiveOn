@@ -4,7 +4,8 @@ import { registerDonor } from "../services/DonorService";
 // import { fetchAllPatients } from "../services/PatientService";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import NavigationBar from "./Navbar/NavigationBar";
+import Footer from "./Footer/Footer";
 export function DonorRegistrationForm() {
   const navigate = useNavigate();
 
@@ -35,6 +36,7 @@ export function DonorRegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+console.log("Form submitted");
 
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
     const phoneRegex = /^[6-9]\d{9}$/;
@@ -118,7 +120,7 @@ export function DonorRegistrationForm() {
     try {
       console.log(data);
       const response = await registerDonor(data);
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         toast.success("Donor Registered Successfully");
         console.log(organname);
         navigate(`/patient-list/${organname}`);
@@ -130,6 +132,8 @@ export function DonorRegistrationForm() {
   };
 
   return (
+    <div>
+      <NavigationBar />
     <Container className="mt-4">
       <Alert variant="success">
         <h2>Register a Donor</h2>
@@ -368,6 +372,8 @@ export function DonorRegistrationForm() {
         </Button>
       </Form>
     </Container>
+          <Footer />
+    </div>
   );
 }
 // import { useState } from "react";

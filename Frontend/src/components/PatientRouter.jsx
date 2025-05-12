@@ -3,11 +3,12 @@ import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { registerPatient } from "../services/PatientService";
 import { useNavigate } from "react-router-dom";
-
+import NavigationBar from "./Navbar/NavigationBar";
+import Footer from "./Footer/Footer";
 export function PatientRegistrationForm() {
   const navigate = useNavigate();
 
-  const [organname, setOrganName] = useState(null);
+  // const [organname, setOrganName] = useState(null);
   const [formData, setFormData] = useState({
     full_name: "",
     dob: "",
@@ -31,7 +32,6 @@ export function PatientRegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     // Regex patterns
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
     const phoneRegex = /^[6-9]\d{9}$/;
@@ -49,6 +49,7 @@ export function PatientRegistrationForm() {
       organ_needed: formData.organ_needed.trim(),
       emergency_contact: formData.emergency_contact.trim(),
     };
+    console.log(`ajjj ${cleanedFormData}`)
     const today = new Date();
     const dobDate = new Date(cleanedFormData.dob);
     today.setHours(0, 0, 0, 0); // Strip time for accurate comparison
@@ -109,9 +110,12 @@ export function PatientRegistrationForm() {
     try {
       console.log(cleanedFormData);
       const response = await registerPatient(cleanedFormData);
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 201) {
         toast.success("Patient Registered Successfully");
-        navigate(`/donor-list/${organname}`);
+        console.log(`${cleanedFormData.organ_needed}`)
+        navigate(`/donor-list/${cleanedFormData.organ_needed}`);
+        // console.log(organname)
+        // navigate(`/donor-list/${organname}`);
       }
     } catch (error) {
       console.error(error);
@@ -120,6 +124,8 @@ export function PatientRegistrationForm() {
   };
 
   return (
+    <div>
+      <NavigationBar />
     <Container className="mt-4">
       <Alert variant="info">
         <h2>Register a Patient</h2>
@@ -281,10 +287,7 @@ export function PatientRegistrationForm() {
               <Form.Select
                 name="organ_needed"
                 value={formData.organ_needed}
-                onChange={(e) => {
-                  handleChange(e);
-                  setOrganName(e.target.value);
-                }}
+                onChange={handleChange}
               >
                 <option value="">-- Select an Organ --</option>
                 <option value="Heart">Heart</option>
@@ -321,5 +324,7 @@ export function PatientRegistrationForm() {
         </Button>
       </Form>
     </Container>
+          <Footer />
+    </div>
   );
 }

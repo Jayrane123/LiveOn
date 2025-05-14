@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // import { useEffect, useState } from "react";
 // import { Alert, Button, Container, Table } from "react-bootstrap";
@@ -118,11 +119,14 @@
 // }
 
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
 import { useEffect, useState } from "react";
 import { Alert, Button, Container, Modal, Table } from "react-bootstrap";
 import { fetchAllPatients, fetchaAlldetails } from "../services/PatientService";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import NavigationBar from "./Navbar/NavigationBar";
@@ -135,16 +139,30 @@ export function PatientList() {
   //   const [selectedPatientId, setSelectedPatientId] = useState(null);
 =======
 
+=======
+import { useNavigate } from "react-router-dom";
+import NavigationBar from "./Navbar/NavigationBar";
+import Footer from "./Footer/Footer";
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
 export function PatientList() {
-    const { organ } = useParams();
+  const navigate = useNavigate();
+
+  const { organ } = useParams();
   const [patients, setPatients] = useState([]);
+<<<<<<< HEAD
 //   const [selectedPatientId, setSelectedPatientId] = useState(null);
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+  //   const [selectedPatientId, setSelectedPatientId] = useState(null);
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
   const [detailVisibility, setDetailVisibility] = useState(false);
   const [patientDetails, setPatientDetails] = useState(null);
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
     const getPatients = async () => {
       try {
         console.log(organ);
@@ -155,6 +173,7 @@ export function PatientList() {
         toast.error("Failed to fetch patients.");
       }
     };
+<<<<<<< HEAD
 
     getPatients();
   }, [organ]);
@@ -173,6 +192,11 @@ export function PatientList() {
 }, [organ]);
 
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+
+    getPatients();
+  }, [organ]);
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
 
   const showDetails = async (patientId) => {
     try {
@@ -185,12 +209,18 @@ export function PatientList() {
     }
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
 const editPatient = (patientId) => {
   navigate(`/edit-patient/${patientId}`);
 };
 =======
 
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+const editPatient = (patientId) => {
+  navigate(`/edit-patient/${patientId}`);
+};
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
   const closeDetailModal = () => {
     setDetailVisibility(false);
     setPatientDetails(null);
@@ -198,10 +228,15 @@ const editPatient = (patientId) => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
       <NavigationBar />
 =======
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+    <div>
+      <NavigationBar />
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
     <Container className="mt-4">
       <Alert variant="success">
         <h5>List of Patients</h5>
@@ -236,6 +271,9 @@ const editPatient = (patientId) => {
                       View
                     </Button>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
                     &nbsp;
                     <Button
                       variant="warning"
@@ -244,9 +282,12 @@ const editPatient = (patientId) => {
                     >
                       Edit
                     </Button>
+<<<<<<< HEAD
 =======
                     &nbsp;&nbsp;
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
                   </td>
                 </tr>
               ))}
@@ -265,6 +306,9 @@ const editPatient = (patientId) => {
             {patientDetails ? (
               <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
                 <p>
                   <strong>Name:</strong> {patientDetails.full_name}
                 </p>
@@ -311,6 +355,7 @@ const editPatient = (patientId) => {
                   <strong>Emergency Contact:</strong>{" "}
                   {patientDetails.emergency_contact}
                 </p>
+<<<<<<< HEAD
 =======
                 <p><strong>Name:</strong> {patientDetails.full_name}</p>
                 <p><strong>Gender:</strong> {patientDetails.gender}</p>
@@ -327,6 +372,8 @@ const editPatient = (patientId) => {
                 <p><strong>ID Proof:</strong> {patientDetails.id_proof}</p>
                 <p><strong>Emergency Contact:</strong> {patientDetails.emergency_contact}</p>
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
               </div>
             ) : (
               <p>Loading details...</p>
@@ -334,14 +381,20 @@ const editPatient = (patientId) => {
           </Modal.Body>
           <Modal.Footer>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
             <Button
               variant="secondary"
               className="btn-sm"
               onClick={closeDetailModal}
             >
+<<<<<<< HEAD
 =======
             <Button variant="secondary" className="btn-sm" onClick={closeDetailModal}>
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
               Close
             </Button>
           </Modal.Footer>
@@ -349,9 +402,14 @@ const editPatient = (patientId) => {
       </Container>
     </Container>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Footer />
     </div>
 =======
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+          <Footer />
+    </div>
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
   );
 }

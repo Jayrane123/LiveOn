@@ -77,16 +77,24 @@ import { fetchAllDonors, DeleteDonor,fetchAllDetailsDonors } from "../services/D
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
 import { useNavigate } from "react-router-dom";
 import NavigationBar from "./Navbar/NavigationBar";
 import Footer from "./Footer/Footer";
 import { removeToken } from "../services/tokenService";
+<<<<<<< HEAD
 export function DonorList() {
   const navigate = useNavigate();
 =======
 
 export function DonorList() {
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+export function DonorList() {
+  const navigate = useNavigate();
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
   const { organ } = useParams();
   const [donors, setDonors] = useState([]);
   const [selectedDonorId, setSelectedDonorId] = useState(null);
@@ -130,11 +138,17 @@ export function DonorList() {
       setDonors(donors.filter((d) => d.donor_id !== selectedDonorId));
       closeDialog();
 <<<<<<< HEAD
+<<<<<<< HEAD
       toast.success(`Donor ${selectedDonorId} selected successfully`);
       removeToken();
       navigate(`/`)
 =======
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+      toast.success(`Donor ${selectedDonorId} selected successfully`);
+      removeToken();
+      navigate(`/`)
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
     } catch (error) {
       toast.error("Something went wrong!");
       console.log(error);
@@ -143,10 +157,15 @@ export function DonorList() {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div>
       <NavigationBar />
 =======
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+    <div>
+      <NavigationBar />
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
     <Container className="mt-4">
       <Alert variant="success">
         <h5>List of Donors</h5>
@@ -180,10 +199,14 @@ export function DonorList() {
                         onClick={() => giveDetails(s.donor_id)}
                       >
 <<<<<<< HEAD
+<<<<<<< HEAD
                         View
 =======
                         More
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+                        View
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
                       </Button>
                       <Button
                         variant="danger"
@@ -265,9 +288,14 @@ export function DonorList() {
       </Container>
     </Container>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <Footer />
     </div>
 =======
 >>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+          <Footer />
+    </div>
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
   );
 }

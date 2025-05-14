@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^1.9.0",
     "bootstrap": "^5.3.6",
+<<<<<<< HEAD
     "formik": "^2.4.6",
     "mdb-react-ui-kit": "^9.0.0",
     "react": "^19.1.0",
@@ -22,6 +23,14 @@
     "react-router-dom": "^6.30.0",
     "react-toastify": "^11.0.5",
     "yup": "^1.6.1"
+=======
+    "react": "^19.1.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.1.0",
+    "react-router-bootstrap": "^0.26.3",
+    "react-router-dom": "^6.30.0",
+    "react-toastify": "^11.0.5"
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

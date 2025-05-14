@@ -4,8 +4,12 @@ import { registerDonor } from "../services/DonorService";
 // import { fetchAllPatients } from "../services/PatientService";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import NavigationBar from "./Navbar/NavigationBar";
 import Footer from "./Footer/Footer";
+=======
+
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
 export function DonorRegistrationForm() {
   const navigate = useNavigate();
 
@@ -36,7 +40,10 @@ export function DonorRegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+<<<<<<< HEAD
 console.log("Form submitted");
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
 
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
     const phoneRegex = /^[6-9]\d{9}$/;
@@ -120,7 +127,11 @@ console.log("Form submitted");
     try {
       console.log(data);
       const response = await registerDonor(data);
+<<<<<<< HEAD
       if (response.status === 200 || response.status === 201) {
+=======
+      if (response.status === 200) {
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
         toast.success("Donor Registered Successfully");
         console.log(organname);
         navigate(`/patient-list/${organname}`);
@@ -132,8 +143,11 @@ console.log("Form submitted");
   };
 
   return (
+<<<<<<< HEAD
     <div>
       <NavigationBar />
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
     <Container className="mt-4">
       <Alert variant="success">
         <h2>Register a Donor</h2>
@@ -372,8 +386,11 @@ console.log("Form submitted");
         </Button>
       </Form>
     </Container>
+<<<<<<< HEAD
           <Footer />
     </div>
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
   );
 }
 // import { useState } from "react";

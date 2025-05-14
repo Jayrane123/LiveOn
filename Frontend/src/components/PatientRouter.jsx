@@ -3,12 +3,20 @@ import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { registerPatient } from "../services/PatientService";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import NavigationBar from "./Navbar/NavigationBar";
 import Footer from "./Footer/Footer";
 export function PatientRegistrationForm() {
   const navigate = useNavigate();
 
   // const [organname, setOrganName] = useState(null);
+=======
+
+export function PatientRegistrationForm() {
+  const navigate = useNavigate();
+
+  const [organname, setOrganName] = useState(null);
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
   const [formData, setFormData] = useState({
     full_name: "",
     dob: "",
@@ -32,6 +40,10 @@ export function PatientRegistrationForm() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+<<<<<<< HEAD
+=======
+
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
     // Regex patterns
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
     const phoneRegex = /^[6-9]\d{9}$/;
@@ -49,7 +61,10 @@ export function PatientRegistrationForm() {
       organ_needed: formData.organ_needed.trim(),
       emergency_contact: formData.emergency_contact.trim(),
     };
+<<<<<<< HEAD
     console.log(`ajjj ${cleanedFormData}`)
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
     const today = new Date();
     const dobDate = new Date(cleanedFormData.dob);
     today.setHours(0, 0, 0, 0); // Strip time for accurate comparison
@@ -110,12 +125,18 @@ export function PatientRegistrationForm() {
     try {
       console.log(cleanedFormData);
       const response = await registerPatient(cleanedFormData);
+<<<<<<< HEAD
       if (response.status === 200 || response.status === 201) {
         toast.success("Patient Registered Successfully");
         console.log(`${cleanedFormData.organ_needed}`)
         navigate(`/donor-list/${cleanedFormData.organ_needed}`);
         // console.log(organname)
         // navigate(`/donor-list/${organname}`);
+=======
+      if (response.status === 200) {
+        toast.success("Patient Registered Successfully");
+        navigate(`/donor-list/${organname}`);
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
       }
     } catch (error) {
       console.error(error);
@@ -124,8 +145,11 @@ export function PatientRegistrationForm() {
   };
 
   return (
+<<<<<<< HEAD
     <div>
       <NavigationBar />
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
     <Container className="mt-4">
       <Alert variant="info">
         <h2>Register a Patient</h2>
@@ -287,7 +311,14 @@ export function PatientRegistrationForm() {
               <Form.Select
                 name="organ_needed"
                 value={formData.organ_needed}
+<<<<<<< HEAD
                 onChange={handleChange}
+=======
+                onChange={(e) => {
+                  handleChange(e);
+                  setOrganName(e.target.value);
+                }}
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
               >
                 <option value="">-- Select an Organ --</option>
                 <option value="Heart">Heart</option>
@@ -324,7 +355,10 @@ export function PatientRegistrationForm() {
         </Button>
       </Form>
     </Container>
+<<<<<<< HEAD
           <Footer />
     </div>
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
   );
 }

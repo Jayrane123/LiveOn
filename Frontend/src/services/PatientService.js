@@ -1,4 +1,5 @@
 import axios from "axios";
+<<<<<<< HEAD
 import { getToken } from "./tokenService";
 
 
@@ -46,3 +47,21 @@ export const updatePatient = (id, data) => axios.put(`http://localhost:6200/pati
 // export function deletePatient(id){
 //     return axios.delete(`http://localhost:6200/patient/${id}`);
 // }
+=======
+
+export function fetchAllPatients(organ){
+// export function fetchAllPatients(){
+    return axios.get(`http://localhost:6200/patient/${organ}`);
+    // return axios.get(`http://localhost:6200/patient/Liver`);
+}
+export function fetchaAlldetails(id){
+    return axios.get(`http://localhost:6200/patient/det/${id}`);
+}
+
+export function registerPatient(formData){
+    return axios.post("http://localhost:6200/patient",formData);
+}
+export function deletePatient(id){
+    return axios.delete(`http://localhost:6200/patient/${id}`);
+}
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2

@@ -3,8 +3,17 @@ import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import { fetchAllDetailsDonors,UpdateDonor } from "../services/DonorService";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+<<<<<<< HEAD
+<<<<<<< HEAD
 import NavigationBar from "./Navbar/NavigationBar";
 import Footer from "./Footer/Footer";
+=======
+
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+import NavigationBar from "./Navbar/NavigationBar";
+import Footer from "./Footer/Footer";
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
 export function DonorEditForm() {
 
     const params = useParams();
@@ -147,8 +156,16 @@ const today = new Date();
     }
 
     return (
+<<<<<<< HEAD
+<<<<<<< HEAD
       <div>
       <NavigationBar />
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+      <div>
+      <NavigationBar />
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
         <Container className="mt-4">
             <Alert variant="success">
                 <h2>Edit a student</h2>
@@ -187,7 +204,15 @@ const today = new Date();
                 </Form>
             </Container>
         </Container>
+<<<<<<< HEAD
+<<<<<<< HEAD
               <Footer />
     </div>
+=======
+>>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
+=======
+              <Footer />
+    </div>
+>>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
     )
 }

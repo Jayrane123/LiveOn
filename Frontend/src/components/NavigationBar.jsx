@@ -3,10 +3,6 @@ import { LinkContainer } from "react-router-bootstrap";
 
 export function NavigationBar() {
     return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
         <Navbar></Navbar>
         // <Navbar expand="lg" bg="dark" data-bs-theme="dark">
         //     <Container>
@@ -17,7 +13,6 @@ export function NavigationBar() {
         //                 <LinkContainer to="/">
         //                     <Nav.Link>Home</Nav.Link>
         //                 </LinkContainer>
-<<<<<<< HEAD
 
         //                 <LinkContainer to="/register-patient">
         //                     <Nav.Link>Register Patient</Nav.Link>
@@ -36,43 +31,5 @@ export function NavigationBar() {
         //         </Navbar.Collapse>
         //     </Container>
         // </Navbar>
-=======
-        <Navbar expand="lg" bg="dark" data-bs-theme="dark">
-            <Container>
-                <Navbar.Brand href="#home">LiveOn</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <LinkContainer to="/">
-                            <Nav.Link>Home</Nav.Link>
-                        </LinkContainer>
-=======
->>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
-
-        //                 <LinkContainer to="/register-patient">
-        //                     <Nav.Link>Register Patient</Nav.Link>
-        //                 </LinkContainer>
-        //                 <LinkContainer to="/register-donor">
-        //                     <Nav.Link>Register Donor</Nav.Link>
-        //                 </LinkContainer>
-        //                 <LinkContainer to="/donor-list/:organ">
-        //                     <Nav.Link>Donor List</Nav.Link>
-        //                 </LinkContainer>
-        //                 <LinkContainer to="/patient-list/:organ">
-        //                     <Nav.Link>Patient List</Nav.Link>
-        //                 </LinkContainer>
-
-<<<<<<< HEAD
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
->>>>>>> e8cc21f7305d9dc7c3189402121d50740c1b36c2
-=======
-        //             </Nav>
-        //         </Navbar.Collapse>
-        //     </Container>
-        // </Navbar>
->>>>>>> f6dcd1ebad451797e2d815b20c0b3f76f6a6d2d3
     )
 }

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Container, Form, Row, Col, Alert, Button } from "react-bootstrap";
-import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import NavigationBar from "../Navbar/NavigationBar";
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { storeToken } from "../../services/tokenService";
+import { loginAsDonor } from "../../services/loginServices";
 
 const DonorLogin = () => {
   const [data, setData] = useState({
@@ -58,10 +58,7 @@ const DonorLogin = () => {
   }
 
   try {
-    const response = await axios.post(
-      "http://localhost:6200/home/login",
-      data
-    );
+    const response = await loginAsDonor(data);
 
     if (response.status === 200) {
       const { token, organ } = response.data; 

@@ -88,6 +88,7 @@ export function DonorList() {
   const [dialogVisibility, setDialogVisibility] = useState(false);
   const [detailVisibility, setDetailVisibility] = useState(false);
   const [donorDetails, setDonorDetails] = useState(null);
+const [successModal, setSuccessModal] = useState(false);
 
 
   useEffect(() => {
@@ -116,22 +117,46 @@ export function DonorList() {
   const closeDetailModal = () => setDetailVisibility(false);
   const closeDialog = () => setDialogVisibility(false);
 
+  // const confirmSelection = async () => {
+  //   try {
+  //     const res = await DeleteDonor(selectedDonorId);
+  //     // const res = await DeleteDonor(selectedDonorId);
+  //     console.log(res)
+  //     toast.success(`Donor ${selectedDonorId} selected successfully`);
+  //     setDonors(donors.filter((d) => d.donor_id !== selectedDonorId));
+  //     closeDialog();
+  //     toast.success(`Donor ${selectedDonorId} selected successfully`);
+  //     removeToken();
+  //     toast.success(`Donor selected successfully`);
+  //     navigate(`/`)
+  //   } catch (error) {
+  //     toast.error("Something went wrong!");
+  //     console.log(error);
+  //   }
+  // };
   const confirmSelection = async () => {
-    try {
-      const res = await DeleteDonor(selectedDonorId);
-      // const res = await DeleteDonor(selectedDonorId);
-      console.log(res)
-      toast.success(`Donor ${selectedDonorId} selected successfully`);
-      setDonors(donors.filter((d) => d.donor_id !== selectedDonorId));
-      closeDialog();
-      toast.success(`Donor ${selectedDonorId} selected successfully`);
-      removeToken();
-      navigate(`/`)
-    } catch (error) {
-      toast.error("Something went wrong!");
-      console.log(error);
-    }
-  };
+  try {
+    const res = await DeleteDonor(selectedDonorId);
+    toast.success(`Donor ${selectedDonorId} selected successfully`);
+    setDonors(donors.filter((d) => d.donor_id !== selectedDonorId));
+    closeDialog();
+    console.log(res)
+
+    // Show success modal
+    setSuccessModal(true);
+
+    // Clear token and redirect after delay
+    removeToken();
+    setTimeout(() => {
+      setSuccessModal(false);
+      navigate(`/`);
+    }, 2500); // 2.5 second delay
+  } catch (error) {
+    toast.error("Something went wrong!");
+    console.log(error);
+  }
+};
+
 
   return (
     <div>
@@ -189,8 +214,6 @@ export function DonorList() {
         ) : (
           <h2>No record found!</h2>
         )}
-
-        {/* Confirmation Modal */}
         <Modal show={dialogVisibility} onHide={closeDialog} centered>
           <Modal.Header closeButton>
             <Modal.Title>Confirmation</Modal.Title>
@@ -247,6 +270,15 @@ export function DonorList() {
             </Button>
           </Modal.Footer>
         </Modal>
+        <Modal show={successModal} onHide={() => setSuccessModal(false)} centered>
+  <Modal.Header closeButton>
+    <Modal.Title>Registration Successful</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    Donor has been successfully selected. Redirecting to home page...
+  </Modal.Body>
+</Modal>
+
       </Container>
     </Container>
           <Footer />

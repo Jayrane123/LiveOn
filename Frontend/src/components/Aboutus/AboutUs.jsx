@@ -9,17 +9,17 @@ const teamMembers = [
   {
     name: "Jay Rane",
     role: "CDAC KHARGHAR",
-    image: "./../../../public/assets/LoginPageImages/Jay_Rane_KH.png",
+    image: "./../../../public/assets/LoginPageImages/jay.jpeg",
   },
   {
     name: "Maheshwar Bagal",
     role: "CDAC KHARGHAR",
-    image: "./../../../public/assets/LoginPageImages/Maheshwar.png",
+    image: "./../../../public/assets/LoginPageImages/maheshvar.jpg",
   },
   {
     name: "Harsh Khanvilkar",
     role: "CDAC JUHU",
-    image: "./../../../public/assets/LoginPageImages/harsh.png",
+    image: "./../../../public/assets/LoginPageImages/harsh.jpeg",
   },
 ];
 

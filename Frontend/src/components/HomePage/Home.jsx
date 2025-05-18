@@ -12,6 +12,7 @@ import Footer from "../Footer/Footer";
 import ButtonCards from "../ButtonCards/ButtonCards";
 import LiveOnInfo from "../LiveOnInfo/LiveOnInfo";
 import ExpertReview from "../ExpertReview/ExpertReview";
+import RegistrationCards from "../ButtonCards/Registration";
 
 const Home = () => {
   const hasShownToast = useRef(false);
@@ -68,7 +69,8 @@ const Home = () => {
         Be the Reason for Someone's Smile Today! Let your life go in someone
         else’s body
       </Marquee>
-      <ButtonCards />
+      <RegistrationCards></RegistrationCards>
+      {/* <ButtonCards /> */}
       <OrganInfo />
       <ToastContainer position="top-center" autoClose={3000}></ToastContainer>
       {/* <Corosel /> */}

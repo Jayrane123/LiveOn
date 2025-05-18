@@ -17,6 +17,8 @@ import DonorHome from "./components/DonorHome/DonorHome";
 import Donor_RegistrationForm from "./components/DonorHome/Donor_RegistrationForm";
 import PatientLogin from "./components/PatientLogin/PatientLogin";
 import PatientRegistration from "./components/Patient Signup/PatientRegistration";
+import AboutUs from "./components/Aboutus/AboutUs";
+import ContactPage from "./components/Contactus/ContactPage"
 
 function App() {
   return (
@@ -36,7 +38,8 @@ function App() {
           <Route path="/edit-patient/:id" element={<PatientEditForm />} />
 
         </Route>
-
+        <Route path="/about" element={<AboutUs></AboutUs>}></Route>
+        <Route path="/contact" element={<ContactPage></ContactPage>}></Route>
         <Route path="/" element={<Home />}></Route>
         <Route path="/register" element={<DonorRegistration />}></Route>
         <Route path="/login" element={<DonorLogin />}></Route>
